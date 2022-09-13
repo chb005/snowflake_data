@@ -1,0 +1,97 @@
+USE DATABASE chb_new
+CREATE OR REPLACE TABLE anand 
+(
+  name VARCHAR(20) NOT NULL,
+  sno int UNIQUE PRIMARY KEY, 
+  age int NOT NULL, 
+  employment VARCHAR(20), 
+  zipcode bigint, 
+  education string DEFAULT 'GRADUATE', 
+  martialstatus string, 
+  profession VARCHAR(20), 
+  Spouse VARCHAR(20), 
+  race string, 
+  gender string NOT NULL, 
+  spouse_Age bigint, 
+  location string, 
+  salary int DEFAULT 0
+);
+
+
+SHOW COLUMNS IN person;
+
+// IT SHOWS NOTHING
+SELECT * FROM ANAND;
+
+
+
+
+SELECT COUNT(*) FROM ANAND;
+
+SELECT * FROM ANAND WHERE GENDER = 'FEMALE';
+
+SELECT * FROM ANAND;
+
+SELECT DISTINCT SALARY FROM ANAND;
+
+SELECT * FROM ANAND WHERE SALARY >= 30000; 
+
+SELECT * FROM ANAND WHERE SALARY BETWEEN 20000 AND 85000; ## BETWEEN TAKES RANGE
+
+SELECT * FROM ANAND WHERE EMPLOYMENT IN ('EXL','INFOSYS');
+
+SELECT * FROM ANAND WHERE AGE >= 25 AND AGE <= 40;
+
+SELECT * FROM ANAND WHERE AGE IN (25,40); ## IN DOESNT TAKE RANGE 
+
+SELECT * FROM ANAND WHERE AGE = 25 OR AGE = 40;
+
+SELECT * FROM ANAND WHERE RACE LIKE 'AF%';
+SELECT * FROM ANAND WHERE RACE LIKE 'N%'; 
+SELECT * FROM ANAND WHERE RACE LIKE '%F%';
+
+SELECT * FROM ANAND WHERE RACE LIKE '_N%'; ///one char before n and any number of characters after n
+
+//GROUP BY AND HAVING CLAUSE..
+// ONLY ON AGGREGARE FUNCTION - MIN,MAX,SUM,STDEV,AVG,COUNT,MEAN,etc....
+// having is a where clause on the group by condition i.e its a count on group by
+
+SELECT EDUCATION,COUNT(*)
+FROM ANAND
+GROUP BY 1
+HAVING COUNT(*) >= 1;
+select * from anand;
+
+SELECT GENDER,COUNT(*)
+FROM ANAND
+GROUP BY 1;
+
+
+SELECT EDUCATION,GENDER,COUNT(SNO)
+FROM ANAND
+GROUP BY 1,2
+ORDER BY 1,2;
+
+
+SELECT SALES_PERSON,SUM(SALES) AS TOT_SALES
+FROM "DEMODATABASE"."PUBLIC"."SALES"
+GROUP BY 1
+---HAVING TOT_SALES > 30
+ORDER BY 1;
+insert into ANAND
+values('BILAL',12,12,'meta',87878,'M.tech','single','consultant','','asian','male',23,'chennai',10000);
+
+SELECT * FROM ANAND;
+select gender,count(*) from anand group by 1
+
+select salary,count(*) from anand group by 1
+
+SELECT * FROM ANAND WHERE GENDER = 'FEMALE';
+
+select employment,sum(SALARY) as s1
+from anand group by employment
+having s1>10000
+
+select education,sum(salary) as s2 from  anand 
+group by education
+having s2>25000

@@ -1,0 +1,23 @@
+USE DATABASE DEMODATABASE;
+
+CREATE TABLE  "CONSUMER_COMPLAINTS" 
+   (	
+      "DATE_RECEIVED" STRING ,
+      "PRODUCT NAME" VARCHAR2(50) , 
+	  "SUB_PRODUCT" VARCHAR2(40) , 
+	  "ISSUE" VARCHAR2(100), 
+      "SUB_ISSUE" VARCHAR2(100),
+      "CONSUMER COMPLAINT NARRATIVE" VARCHAR2(100),
+      "Company Public Response" STRING,
+      "Company" VARCHAR(30),
+      "State Name" CHAR(4),
+      "Zip Code" INTEGER,
+      "Tags" VARCHAR(10),
+      "Consumer Consent Provided" CHAR(6),
+       "Submitted via" STRING,
+      "Date Sent to Company" STRING,
+     "Company Response to Consumer" VARCHAR(2),
+     "Timely Response" CHAR(4),
+     "CONSUMER DISPUTED" CHAR(4),
+     "COMPLAINT_ID" NUMBER(12,0) NOT NULL PRIMARY KEY
+);

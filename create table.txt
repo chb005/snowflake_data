@@ -1,0 +1,21 @@
+CREATE OR REPLACE TABLE OWNER
+(
+   "OwnerID" INTEGER NOT NULL PRIMARY KEY ,
+   "Name" VARCHAR2(20),
+   "Surname" STRING,
+   "StreetAddress" VARCHAR2(50),
+   "City" STRING,
+   "State" CHAR(4),
+   "StateFull" STRING,
+   "ZipCode" INTEGER
+);
+
+CREATE OR REPLACE TABLE PETS
+(
+    "PetID" VARCHAR(10) NOT NULL PRIMARY KEY,
+    "Name" VARCHAR(20),
+    "Kind" STRING,
+    "Gender" CHAR(7),
+    "Age" INTEGER,
+    "OwnerID" INTEGER NOT NULL REFERENCES OWNER 
+);
